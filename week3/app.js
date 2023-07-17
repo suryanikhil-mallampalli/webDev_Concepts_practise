@@ -39,11 +39,18 @@
 
   Testing the server - run `npm run test-todoServer` command in terminal
  */
+
+
+
+
+  
   const express = require('express');
   const bodyParser = require('body-parser');
-  
+  const path = require("path");
   const app = express();
-  
+  // const cors=require("cors"); // we can allow any frontend to interact with server. 
+  const port=3000;
+  // app.use(cors());
   app.use(bodyParser.json());
   
   let todos = [];
@@ -92,10 +99,21 @@
     }
   });
   
+  // home route
+  app.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname,"index.html"));
+  })
+
   // for all other routes, return 404
   app.use((req, res, next) => {
     res.status(404).send();
   });
   
-  module.exports = app;
+
+
+
+  
+  app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+  })
   

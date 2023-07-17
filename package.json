@@ -1,0 +1,19 @@
+{
+  "name": "webdev_concepts_practise",
+  "version": "1.0.0",
+  "description": "This repo consists of my practise codes of the concepts of MERN Stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suryanikhil-mallampalli/webDev_Concepts_practise.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suryanikhil-mallampalli/webDev_Concepts_practise/issues"
+  },
+  "homepage": "https://github.com/suryanikhil-mallampalli/webDev_Concepts_practise#readme"
+}
