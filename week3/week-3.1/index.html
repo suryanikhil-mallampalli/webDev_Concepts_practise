@@ -4,6 +4,19 @@
     </title>
 </head>
 <script>
+    function todosCallback(data){
+        console.log(data);
+    }
+    function callback2(resp){
+        resp.json().then(todosCallback);
+    }
+    function getData(){
+        fetch("http://localhost:3000/todos",{
+            method:"GET ",
+        }).then(callback2)
+    }
+    getData();
+
     function parsedResponse(data){
         console.log(data);
     }
@@ -11,11 +24,14 @@
         resp.json.then(parsedResponse);
     }
     function onPress(){
+        var title =document.getElementById("title").value;
+        var description = document.getElementById("description").value;
+        console.log(title);
         fetch("http://localhost:3000/todos",{
             method:"POST",
             body: JSON.stringify({
-                title: "gym",
-                description: "go to gym at 7" 
+                title: title,
+                description: description
             }),
             headers: {
                 "Content-Type": "application/json"
@@ -25,12 +41,10 @@
 </script>
 <body>
     TODO Title
-    <br>
     <input type="text" id="title">
     <br><br>
     TODO description
-    <br>
-    <input type="text" name="task" placeholder="Enter task here">
+    <input type="text" id="description" name="task" placeholder="Enter task here">
     <button onclick="onPress()">send todo</button>
     
 </body>
